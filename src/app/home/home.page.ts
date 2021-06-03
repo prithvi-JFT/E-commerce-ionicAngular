@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  products: any = []
 
+  constructor(private homeService: HomeService) {}
+
+    ngOnInit() {
+      this.homeService.fetchProducts().subscribe((data)=>{
+        this.products = data
+        console.log(data)
+      })
+    }
 }
