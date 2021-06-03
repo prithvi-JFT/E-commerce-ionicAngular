@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class HomeService {
 
-  products: any
-
   constructor(private http: HttpClient) { }
 
   fetchProducts(){
