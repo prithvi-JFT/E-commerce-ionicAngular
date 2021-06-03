@@ -1,19 +1,46 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" >
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <ion-title style="font-size: 1.5rem;" slot="start">
+      ShopToShop
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" >
+  <ion-card *ngFor="let product of products" >
+    <ion-card-header class="card-header">
+      <ion-card-title>
+        {{product.id}}
+      </ion-card-title>
+      <ion-card-title>
+        Price:${{product.price}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="card-content">
+         <div>
+          <ion-img [src]="product.image" class="image"></ion-img>
+         </div>
+         <div>
+            <ion-text>
+            {{product.description}}
+            </ion-text>
+          </div>
+    </ion-card-content>
 
-  <div id="container">
-    Development Starts here
-   </div>
+    <ion-row>
+      <ion-item class="icons" color='primary'>
+          <ion-icon name="eye-outline"></ion-icon>
+          <p class="hint">View</p>
+      </ion-item>
+      <ion-item class="icons" color='primary'>
+          <ion-icon name="share-outline"></ion-icon>
+          <p class="hint">Share</p>
+      </ion-item>
+      <ion-item class="icons" color='primary'>
+          <ion-icon name="cart-outline"></ion-icon>
+          <p class="hint">Cart</p>
+      </ion-item>
+    </ion-row>
+
+  </ion-card>
 </ion-content>
