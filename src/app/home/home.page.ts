@@ -15,7 +15,6 @@ export class HomePage {
     ngOnInit() {
       this.homeService.fetchProducts().subscribe((data)=>{
         this.products = data
-        console.log(data)
       })
     }
 }
