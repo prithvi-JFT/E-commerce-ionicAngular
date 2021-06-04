@@ -11,4 +11,8 @@ export class HomeService {
   fetchProducts(){
     return this.http.get('https://fakestoreapi.com/products')
   }
+
+  fetchProduct(productId){
+    return this.http.get("https://fakestoreapi.com/products/"+productId)
+  }
 }
