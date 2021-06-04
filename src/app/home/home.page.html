@@ -26,7 +26,7 @@
                         {{product.price | currency}}
                     </ion-card-content>
                     <div>
-                        <ion-button fill="clear" color="primary">
+                        <ion-button fill="clear" color="primary" [routerLink]="['/', 'home', product.id]">
                             More
                         </ion-button>
                     </div>
