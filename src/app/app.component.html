@@ -1,4 +1,5 @@
 <ion-app>
+
     <ion-menu side="start" menuId="m1">
         <ion-header>
             <ion-toolbar>
@@ -10,7 +11,7 @@
         <ion-content>
             <ion-list>
                 <ion-menu-toggle>
-                    <ion-item lines="none">
+                    <ion-item lines="none" routerLink="/home">
                         <ion-icon name="home-outline" slot="start"></ion-icon>
                         <ion-label>
                             Home
@@ -18,7 +19,7 @@
                     </ion-item>
                 </ion-menu-toggle>
                 <ion-menu-toggle>
-                    <ion-item lines="none">
+                    <ion-item lines="none" routerLink="/cart">
                         <ion-icon name="checkbox-outline" slot="start"></ion-icon>
                         <ion-label>
                             My Cart
