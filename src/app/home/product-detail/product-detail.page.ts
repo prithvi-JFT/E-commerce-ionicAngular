@@ -22,6 +22,8 @@ export class ProductDetailPage implements OnInit {
       }
       this.homeService.getProduct(paramMap.get('productId')).subscribe(product => {
         this.products = product
+        console.log(this.products);
+
       })
     })
   }
