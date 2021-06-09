@@ -24,7 +24,7 @@ export class AuthPage implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.username = form.value.email;
+    this.username = form.value.username;
     this.password = form.value.password;
   }
 
