@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../home/home.service';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartPage implements OnInit {
 
-  constructor() { }
+  cart: any = []
+  products: any = []
+  constructor(private cartService: CartService, private homeService: HomeService) { }
 
   ngOnInit() {
+    this.cartService.getAllCartProducts().subscribe(data => {
+      this.cart = data
+      console.log(this.cart);
+    })
   }
 
+  deleteFromCart(id) {
+    this.cartService.deleteCartProduct(id).subscribe(data => {
+      console.log(data);
+    })
+  }
 }
