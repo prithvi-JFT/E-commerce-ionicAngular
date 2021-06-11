@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cart {{userId}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let item of userCart">
+  <p>{{item.date}}</p>
+</ion-content>
