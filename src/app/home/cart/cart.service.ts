@@ -5,17 +5,11 @@ import {map, take, tap} from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class cartService {
 
   constructor(private http: HttpClient) { }
-
-  fetchProducts(){
-    return this.http.get('https://fakestoreapi.com/products')
+  
+  getUserCart(userId:string){
+    return this.http.get(`https://fakestoreapi.com/carts/user/${userId}`)
   }
-
-  getProduct(id: string) {
-    return this.http.get(`https://fakestoreapi.com/products/${id}`)
-  }
-
-
 }

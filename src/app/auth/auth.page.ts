@@ -19,7 +19,6 @@ export class AuthPage implements OnInit {
   ngOnInit() {
     this.authService.getUsers().subscribe(data => {
       this.users = data
-      console.log(data);
     })
   }
 
@@ -40,6 +39,7 @@ export class AuthPage implements OnInit {
           this.users.forEach(data => {
             if(data.username === this.username && data.password === this.password) {
               localStorage.setItem('username', data.username)
+              localStorage.setItem('userId',data.id)
               loadinEl.dismiss()
               found = true
             }
