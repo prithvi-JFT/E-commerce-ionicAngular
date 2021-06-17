@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar>
       <ion-menu-button slot="start" ></ion-menu-button>
-      <ion-back-button color="danger" slot="end"></ion-back-button>
+      <ion-back-button color="white" slot="end" style="background-color:orange; border-radius: 50%;"></ion-back-button>
   </ion-toolbar>
 </ion-header>
 
@@ -22,5 +22,13 @@
 
       <h2>hello</h2>
     </ion-item>
+
+    <ion-button color="danger" (click)="deleteFromCart(item.id)">
+      <ion-icon name="trash"></ion-icon>
+      Delete
+  </ion-button>
   </ion-card>
+
+<ion-content *ngFor="let item of userCart">
+
 </ion-content>

@@ -5,11 +5,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CartService {
+  cart: any = [];
 
   constructor(private http: HttpClient) { }
 
-  getUserCart(userId: string){
+  getUserCart(userId: number){
     return this.http.get(`https://fakestoreapi.com/carts/user/${userId}`);
+  }
+
+  deleteCartProduct(id: string) {
+    return this.http.delete(`https://fakestoreapi.com/carts/${id}`);
   }
 
 }

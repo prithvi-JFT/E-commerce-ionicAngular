@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import{CartServiceService} from './cart-service.service';
 import {HomeService} from '../home.service';
+import { CartService } from './cart.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.page.html',
@@ -15,7 +15,7 @@ export class CartPage implements OnInit {
   userid: any=localStorage.getItem('userId');
   userId: number=+this.userid;
   buttonText='Back';
-  constructor(private route: ActivatedRoute, private navCtrl: NavController, private cartService: CartServiceService, private homeService: HomeService) { }
+  constructor(private route: ActivatedRoute, private navCtrl: NavController, private cartService: CartService, private homeService: HomeService) { }
 
   ngOnInit() {this.getCart();this.allProducts();}
 
@@ -33,4 +33,11 @@ export class CartPage implements OnInit {
     });
   }
 
+
+
+deleteFromCart(id) {
+  this.cartService.deleteCartProduct(id).subscribe(data => {
+    console.log(data);
+  });
+}
 }
