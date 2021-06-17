@@ -10,7 +10,7 @@ export class HomeService {
   constructor(private http: HttpClient) { }
 
   fetchProducts(){
-    return this.http.get('https://fakestoreapi.com/products')
+    return this.http.get('https://fakestoreapi.com/products');
   }
 
   getProduct(id: string) {

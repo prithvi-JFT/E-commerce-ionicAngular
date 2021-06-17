@@ -8,8 +8,10 @@ import {map, take, tap} from 'rxjs/operators'
 export class cartService {
 
   constructor(private http: HttpClient) { }
-  
-  getUserCart(userId:string){
-    return this.http.get(`https://fakestoreapi.com/carts/user/${userId}`)
+
+  getUserCart(userId: string){
+    return this.http.get(`https://fakestoreapi.com/carts/user/${userId}`);
   }
+
+  getAllProducts
 }
