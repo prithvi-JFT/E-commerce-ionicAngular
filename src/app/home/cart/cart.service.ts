@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {map, take, tap} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
-export class cartService {
+export class CartService {
 
   constructor(private http: HttpClient) { }
 
@@ -13,5 +12,4 @@ export class cartService {
     return this.http.get(`https://fakestoreapi.com/carts/user/${userId}`);
   }
 
-  getAllProducts
 }
