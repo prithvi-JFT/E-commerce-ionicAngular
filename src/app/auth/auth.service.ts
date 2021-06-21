@@ -9,14 +9,14 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.http.get('https://fakestoreapi.com/users')
+    return this.http.get('https://fakestoreapi.com/users');
   }
 
-  login(username:string, password: string) {
+  login(username: string, password: string) {
     return this.http.post('https://fakestoreapi.com/auth/login', {
       username: username,
       password: password
-    })
+    });
   }
 
   loggedIn() {
