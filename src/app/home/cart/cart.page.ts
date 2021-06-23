@@ -15,6 +15,8 @@ export class CartPage implements OnInit {
   userid: any=localStorage.getItem('userId');
   userId: number=+this.userid;
   buttonText='Back';
+  deletedCart: any={};
+
   constructor(private route: ActivatedRoute, private navCtrl: NavController, private cartService: CartService, private homeService: HomeService) { }
 
   ngOnInit() {this.getCart();this.allProducts();}
@@ -35,9 +37,16 @@ export class CartPage implements OnInit {
 
 
 
-deleteFromCart(id) {
-  this.cartService.deleteCartProduct(id).subscribe(data => {
-    console.log(data);
+deleteFromCart(cartId) {
+  this.cartService.deleteCartProduct(cartId).subscribe(data => {
+    this.deletedCart=data;
+    console.log(this.deletedCart.id);
+    this.userCart.forEach((element ,index)=> {
+      if (element.id===this.deletedCart.id){
+        this.userCart.splice(index,1);
+        return;
+      }
+    });
   });
 }
 }
