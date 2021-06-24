@@ -14,20 +14,20 @@ export class AuthService {
 
   login(username: string, password: string) {
     return this.http.post('https://fakestoreapi.com/auth/login', {
-      username: username,
-      password: password
+      username,
+      password
     });
   }
 
   loggedIn() {
-    return localStorage.getItem('username')
+    return localStorage.getItem('username');
   }
 
   getToken() {
-    return localStorage.getItem('username')
+    return localStorage.getItem('username');
   }
 
   logOut() {
-    return localStorage.removeItem('username')
+    return localStorage.removeItem('username');
   }
 }
