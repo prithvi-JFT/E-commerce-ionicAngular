@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -11,15 +12,15 @@ import { AuthService } from './auth.service';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-  username: string
-  password: string
-  users: any = []
-  constructor(private http: HttpClient, private authService: AuthService, private router: Router, private loadingCtrl: LoadingController, private alertCtrl: AlertController) { }
+  username: string;
+  password: string;
+  users: any = [];
+  constructor(private authService: AuthService, private router: Router, private loadingCtrl: LoadingController, private alertCtrl: AlertController) { }
 
   ngOnInit() {
     this.authService.getUsers().subscribe(data => {
-      this.users = data
-    })
+      this.users = data;
+    });
   }
 
   onSubmit(form: NgForm) {
@@ -33,19 +34,19 @@ export class AuthPage implements OnInit {
         keyboardClose: true,
         message: 'Logging In...'
       }).then(loadinEl => {
-        loadinEl.present()
+        loadinEl.present();
         setTimeout(() => {
-          let found = false
+          let found = false;
           this.users.forEach(data => {
             if(data.username === this.username && data.password === this.password) {
-              localStorage.setItem('username', data.username)
-              localStorage.setItem('userId',data.id)
-              loadinEl.dismiss()
-              found = true
+              localStorage.setItem('username', data.username);
+              localStorage.setItem('userId',data.id);
+              loadinEl.dismiss();
+              found = true;
             }
-          })
+          });
           if(found) {
-            this.router.navigate(['/home'])
+            this.router.navigate(['/home']);
           } else {
             this.alertCtrl.create({
               message: 'Invalid Credentials',
@@ -56,12 +57,12 @@ export class AuthPage implements OnInit {
                 }
               ]
             }).then(alertEl => {
-              alertEl.present()
-              loadinEl.dismiss()
-            })
+              alertEl.present();
+              loadinEl.dismiss();
+            });
           }
-        }, 1000)
-      })
-    })
+        }, 1000);
+      });
+    });
   }
 }
