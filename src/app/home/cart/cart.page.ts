@@ -17,7 +17,7 @@ export class CartPage implements OnInit {
   buttonText='Back';
   deletedCart: any={};
 
-  constructor(private route: ActivatedRoute, private navCtrl: NavController, private cartService: CartService, private homeService: HomeService) { }
+  constructor(private cartService: CartService, private homeService: HomeService) { }
 
   ngOnInit() {this.getCart();this.allProducts();}
 
