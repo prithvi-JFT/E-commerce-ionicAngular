@@ -1,0 +1,23 @@
+.deleteCart{
+  position: relative;
+  left:18rem;
+  color: red;
+}
+
+.quantity{
+  display:flex;
+  justify-content: space-around;
+  width: 4rem;
+  align-items: center;
+}
+
+.decreaseQuantity{
+
+  color: red;
+}
+
+.increaseQuantity{
+  color:green;
+}
+
+
