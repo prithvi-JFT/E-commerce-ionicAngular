@@ -13,6 +13,7 @@ export class HomePage {
   userCart: any=[];
   userId: number=+this.userid;
   constructor(private homeService: HomeService,private splashScreen: SplashScreen) {};
+    // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
     ngOnInit(){
       this.splashScreen.show();
       this.homeService.fetchProducts().subscribe((data)=>{
