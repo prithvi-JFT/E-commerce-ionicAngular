@@ -20,7 +20,7 @@
       </ion-card-title>
     </ion-card-header>
 
-    <ion-card-content *ngFor="let product of item.products">
+    <ion-card-content *ngFor="let product of item.products;let productIndex=index">
       <ion-item>
           <ion-thumbnail slot="start">
             <ion-img [src]="products[product.productId].image" no-padding></ion-img>
@@ -31,9 +31,9 @@
       <ion-item text-center>
         <h2>Quatity:</h2>
         <div class="quantity">
-          <ion-icon name="remove-outline" class="decreaseQuantity"></ion-icon>
+          <ion-icon name="remove-outline" class="decreaseQuantity" (click)="updateQuantity('decrease',cartIndex,productIndex);"></ion-icon>
           <h2> {{product.quantity}}</h2>
-          <ion-icon name="add-outline"  class="increaseQuantity"></ion-icon>
+          <ion-icon name="add-outline"  class="increaseQuantity" (click)="updateQuantity('increase',cartIndex,productIndex);"></ion-icon>
         </div>
       </ion-item>
     </ion-card-content>

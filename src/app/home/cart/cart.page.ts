@@ -65,6 +65,24 @@ export class CartPage implements OnInit {
       });
     });
   };
+
+  updateQuantity(type,cartIndex,productIndex){
+    if (type==='increase'){
+      this.userCart[cartIndex].products[productIndex].quantity+=1;
+    }
+    else {
+      if(this.userCart[cartIndex].products[productIndex].quantity>1){
+      this.userCart[cartIndex].products[productIndex].quantity-=1;
+      }
+      else{
+        this.userCart[cartIndex].products.splice(productIndex,1);
+      }
+    };
+    this.priceArray=[];
+    this.getCartPrice();
+    console.log(this.userCart);
+  };
+
 }
 
 
