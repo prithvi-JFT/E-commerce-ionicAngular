@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar>
       <ion-menu-button slot="start" ></ion-menu-button>
-      <div style="background-color: red;width: 3rem;border-radius: 50%;" slot="end">
+      <div style="color: red;" slot="end">
         <ion-buttons slot="end">
           <ion-back-button defaultHref="home"></ion-back-button>
         </ion-buttons>
@@ -12,14 +12,15 @@
 
 
 <ion-content >
-  <ion-card *ngFor="let item of userCart">
+  <ion-card *ngFor="let item of userCart;let cartIndex=index">
     <ion-card-header>
       <ion-card-title>
         Cart {{item.id}}
+        <ion-icon name="trash" class="deleteCart" (click)="deleteFromCart(item.id)"></ion-icon>
       </ion-card-title>
     </ion-card-header>
 
-    <ion-card-content *ngFor="let product of item.products">
+    <ion-card-content *ngFor="let product of item.products;let productIndex=index">
       <ion-item>
           <ion-thumbnail slot="start">
             <ion-img [src]="products[product.productId].image" no-padding></ion-img>
@@ -28,15 +29,18 @@
       </ion-item>
 
       <ion-item text-center>
-        <h2>Quatity: {{product.quantity}}</h2>
+        <h2>Quatity:</h2>
+        <div class="quantity">
+          <ion-icon name="remove-outline" class="decreaseQuantity" (click)="updateQuantity('decrease',cartIndex,productIndex);"></ion-icon>
+          <h2> {{product.quantity}}</h2>
+          <ion-icon name="add-outline"  class="increaseQuantity" (click)="updateQuantity('increase',cartIndex,productIndex);"></ion-icon>
+        </div>
       </ion-item>
-
     </ion-card-content>
 
-    <ion-button color="danger" (click)="deleteFromCart(item.id)">
-      <ion-icon name="trash"></ion-icon>
-      Delete
-    </ion-button>
+    <ion-item>
+      <h2>price: $ {{priceArray[cartIndex]}}</h2>
+    </ion-item>
   </ion-card>
 
 <ion-content *ngFor="let item of userCart">
